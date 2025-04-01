@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(to right, #ffb6c1, #ff6b6b);
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 2px solid pink;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #ff3333;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #ff3333;
+        }
+    </style>
+</head>
+<body>
+    <h1>💖 Write a Love Letter 💖</h1>
+    <div class="container">
+        <textarea id="letterInput" placeholder="Express your love here...">Dear Friends,
+
+I have something really important to tell you all, and I hope you're ready for it...
+
+I've been keeping this a secret for a long time, but today feels like the perfect moment to confess. The truth is… you are all the most amazing, wonderful, and hilarious friends ever! 🎉
+
+Wait… did you think I was about to reveal something shocking? 😆 Gotcha! Happy April Fool’s Day! But one thing is no joke—I’m truly grateful to have such awesome friends like you.
+
+With laughter and mischief,
+Mistu</textarea>
+        <button onclick="sendLetter()">💌 Send with Love 💌</button>
+        <p id="message" class="message" style="display: none;"></p>
+        <button id="editButton" style="display: none;" onclick="editLetter()">✍ Edit Your Letter</button>
+    </div>
+
+    <script>
+        function sendLetter() {
+            const letter = document.getElementById("letterInpcut").value.trim();
+            const message = document.getElementById("message");
+            const editButton = document.getElementById("editButton");
+            if (letter) {
+                message.textContent = `"${letter}"`;
+                message.style.display = "block";
+                document.getElementById("letterInput").style.display = "none";
+                editButton.style.display = "block";
+            }
+        }
+
+        function editLetter() {
+            document.getElementById("letterInput").style.display = "block";
+            document.getElementById("message").style.display = "none";
+            document.getElementById("editButton").style.display = "none";
+        }
+    </script>
+</body>
+</html>
